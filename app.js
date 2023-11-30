@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const Comment = require("./models/user.model");
-require("./config/db");
+
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
