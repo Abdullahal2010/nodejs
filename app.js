@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const Comment = require("./models/user.model");
+
 
 
 app.use(cors());
@@ -9,17 +9,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", async (req, res) => {
-  const allComments = await Comment.find();
-  res.send(allComments);
+  res.send("hello");
 });
 
 app.post("/", async (req, res) => {
-  const newComment = new Comment({
-    username: req.body.username,
-    comment: req.body.comment,
-  });
+
   await newComment.save();
-  res.send(newComment);
+  res.send("new Comment");
 });
 
 app.get("/hello", (req, res) => {
